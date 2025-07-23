@@ -3,7 +3,11 @@
 <div align="center">
 *A modern, responsive team dashboard built with Angular 18 featuring dynamic data rendering, efficient state management, and comprehensive testing.*
 </div>
+<div></div>
+<h1>Demo Live: https://team-dashboard-task.vercel.app/</h1>
 
+<div></div>
+<div></div>
 <img width="1280" height="2043" alt="dashboard-teampng" src="https://github.com/user-attachments/assets/ad71694f-ff66-44ed-945a-4180c5ef9e89" />
 
 ---
