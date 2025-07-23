@@ -9,6 +9,7 @@
 <div></div>
 <div></div>
 <img width="1280" height="2043" alt="dashboard-teampng" src="https://github.com/user-attachments/assets/ad71694f-ff66-44ed-945a-4180c5ef9e89" />
+<img width="899" height="681" alt="Screenshot 2025-07-24 001618" src="https://github.com/user-attachments/assets/94146029-1014-4d6b-ae65-0d5612a5c2aa" />
 
 ---
 
