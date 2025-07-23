@@ -1,0 +1,65 @@
+<div class="team-page">
+  <main class="team-content">
+    <div class="container">
+      <section class="filters-section" aria-label="Filter team members">
+        <app-filter id="team-filters" role="region" aria-label="Team filters"
+          (filtersChange)="onFiltersChange($event)" (clearFilters)="onClearFilters()">
+        </app-filter>
+      </section>
+
+      <div class="view-controls">
+        <div class="view-toggle" role="group" aria-label="View mode toggle">
+          <button type="button" class="view-toggle-btn" 
+            [class.active]="(viewMode$ | async) === ViewMode.GRID"
+            (click)="onViewModeChange(ViewMode.GRID)" aria-label="Grid view"
+            [attr.aria-pressed]="(viewMode$ | async) === ViewMode.GRID">
+            <i class="fa fa-th" aria-hidden="true"></i> Grid
+          </button>
+          <button type="button" class="view-toggle-btn" 
+            [class.active]="(viewMode$ | async) === ViewMode.LIST"
+            (click)="onViewModeChange(ViewMode.LIST)" aria-label="List view"
+            [attr.aria-pressed]="(viewMode$ | async) === ViewMode.LIST">
+            <i class="fa fa-list" aria-hidden="true"></i> List
+          </button>
+        </div>
+      </div>
+
+      <section class="members-section" aria-label="Team members list" role="region">
+        <div *ngIf="loading$ | async" class="loading-state" role="status" aria-live="polite">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <p>Loading team members...</p>
+        </div>
+
+        <div *ngIf="!(loading$ | async)" class="members-container">
+          <ng-container *ngIf="(filteredTeamMembers$ | async) as members">
+            <div *ngIf="members.length > 0; else noResults" class="members-grid"
+              [class.grid-view]="(viewMode$ | async) === ViewMode.GRID"
+              [class.list-view]="(viewMode$ | async) === ViewMode.LIST">
+              <app-team-card *ngFor="let member of members | slice: (currentPage * pageSize) : (currentPage * pageSize + pageSize); trackBy: trackByMemberId"
+                [member]="member" [viewMode]="(viewMode$ | async)!"
+                [attr.aria-label]="'Team member: ' + member.firstName + ' ' + member.lastName"
+                tabindex="0"></app-team-card>
+            </div>
+          </ng-container>
+
+          <ng-template #noResults>
+            <div class="empty-state-container">
+              <div class="empty-state" role="status" aria-live="polite">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <h3>No team members found</h3>
+                <p>Try adjusting your filters to see more results</p>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+
+        <app-pagination *ngIf="((filteredTeamMembers$ | async)?.length || 0) > 0"
+          [currentPage]="currentPage" 
+          [pageSize]="pageSize" 
+          [totalRecords]="(filteredTeamMembers$ | async)?.length || 0"
+          (pageChange)="onPageChange($event)">
+        </app-pagination>
+      </section>
+    </div>
+  </main>
+</div>

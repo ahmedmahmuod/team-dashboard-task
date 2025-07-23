@@ -1,0 +1,17 @@
+<div class="pagination-wrapper">
+  <div class="pagination-container">
+    <p-paginator
+      [first]="currentPage * pageSize"
+      [rows]="pageSize"
+      [totalRecords]="totalRecords"
+      [rowsPerPageOptions]="pageSizeOptions"
+      [showCurrentPageReport]="true"
+      [showPageLinks]="showPageLinks"
+      [showFirstLastIcon]="true"
+      currentPageReportTemplate="{{ currentPageReport }}"
+      (onPageChange)="onPageChange($event)"
+      [styleClass]="'light-paginator'"
+    >
+    </p-paginator>
+  </div>
+</div>

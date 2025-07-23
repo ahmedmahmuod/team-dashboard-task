@@ -1,0 +1,23 @@
+<ng-container *ngIf="isMobile && opened">
+    <div class="sidebar-backdrop" (click)="closeSidebar()" tabindex="-1"></div>
+</ng-container>
+<aside class="sidebar blur-effect" [class.opened]="opened" [class.not-opened]="!opened" [class.mobile-mode]="isMobile" [attr.aria-expanded]="opened" role="complementary">
+    <div class="sidebar-logo" *ngIf="isMobile">
+        <img src="../../../../assets/images/header-site-logo.png" alt="logo" width="150px" loading="lazy">
+        <button class="close-btn" *ngIf="isMobile && opened" (click)="closeSidebar()" aria-label="Close sidebar">✕</button>
+    </div>
+    
+    <nav class="sidebar-menu" aria-label="Main menu">
+        <img src="../../../../assets/images/header-site-logo.png" alt="logo" class="logo" *ngIf="!isMobile" loading="lazy">
+        <ul>
+            <li routerLinkActive="active" routerLink="/dashboard/analytics" tabindex="0">
+                <i class="fa-solid fa-chart-simple"></i>
+                Analytics
+            </li>
+            <li routerLinkActive="active" routerLink="/dashboard/teams" tabindex="0">
+                <i class="fa-solid fa-users"></i>
+                Team Members
+            </li>
+        </ul>
+    </nav>
+</aside>

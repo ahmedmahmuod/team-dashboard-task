@@ -1,0 +1,71 @@
+<div class="analytics-dashboard container" role="main" aria-label="Analytics Dashboard">
+  <div *ngIf="!isLoading" class="dashboard-content">
+    <section class="metrics-section" aria-labelledby="metrics-heading">
+      <h2 id="metrics-heading" class="sr-only">Key Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric-card" *ngFor="let metric of keyMetrics; trackBy: trackByMetric; let i = index" 
+             [style.animation-delay]="(i * 100) + 'ms'" tabindex="0" role="group" 
+             [attr.aria-label]="metric.label + ', value ' + metric.value + ', trend ' + metric.trend + '%'">
+          <div class="metric-header">
+            <div class="metric-icon" [class]="'icon-' + metric.type" aria-hidden="true">
+              <i [class]="metric.icon"></i>
+            </div>
+            <div class="metric-trend" [class]="getTrendClass(metric.trend)" aria-live="polite">
+              <i [class]="getTrendIcon(metric.trend)" aria-hidden="true"></i>
+              <span>{{ metric.trend }}%</span>
+            </div>
+          </div>
+          <div class="metric-body">
+            <h3 class="metric-value">{{ metric.value }}</h3>
+            <p class="metric-label">{{ metric.label }}</p>
+            <div class="metric-progress" aria-hidden="true">
+              <div class="progress-bar" [style.width]="getProgressWidth(metric.value) + '%'" [class]="'progress-' + metric.type"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts-section" aria-label="Analytics charts">
+      <div class="charts-container">
+        <div class="chart-card primary-chart" role="region" aria-labelledby="revenue-chart-title">
+          <div class="chart-header">
+            <div class="chart-title-group">
+              <h3 id="revenue-chart-title" class="chart-title">Revenue Analytics</h3>
+              <p class="chart-description">Monthly performance and growth trends</p>
+            </div>
+          </div>
+          <div class="chart-body">
+            <p-chart type="line" [data]="revenueChartData" [options]="lineChartOptions" width="100%" height="350px" [responsive]="true"></p-chart>
+          </div>
+        </div>
+
+        <div class="secondary-charts">
+          <div class="chart-card" role="region" aria-labelledby="team-performance-chart-title">
+            <div class="chart-header">
+              <div class="chart-title-group">
+                <h3 id="team-performance-chart-title" class="chart-title">Team Performance</h3>
+                <p class="chart-description">Multi-dimensional analysis</p>
+              </div>
+            </div>
+            <div class="chart-body">
+              <p-chart type="radar" [data]="performanceRadarData" [options]="radarChartOptions" width="100%" height="280px" [responsive]="true"></p-chart>
+            </div>
+          </div>
+
+          <div class="chart-card" role="region" aria-labelledby="project-status-chart-title">
+            <div class="chart-header">
+              <div class="chart-title-group">
+                <h3 id="project-status-chart-title" class="chart-title">Project Status</h3>
+                <p class="chart-description">Current distribution</p>
+              </div>
+            </div>
+            <div class="chart-body">
+              <p-chart type="doughnut" [data]="projectDistributionData" [options]="doughnutChartOptions" width="100%" height="280px" [responsive]="true"></p-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

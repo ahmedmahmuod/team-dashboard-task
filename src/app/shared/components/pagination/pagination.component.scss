@@ -1,0 +1,124 @@
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.pagination-container {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--paginator-border);
+  display: inline-flex;
+}
+
+::ng-deep {
+    .p-select {
+        border-radius: 8px;
+        border: 1px solid var(--paginator-border);
+        background: var(--primary) !important;
+        color: var(--paginator-text);
+    }
+
+    .p-select-overlay	 {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--paginator-border);
+        background: var(--secondary) !important;
+    }
+
+  .light-paginator {
+    background: var(--primary) !important;
+    border: none;
+    padding: 0;
+    
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last,
+    .p-paginator-page {
+      min-width: 2.25rem;
+      height: 2.25rem;
+      margin: 0 0.15rem;
+      border-radius: 8px;
+      border: 1px solid var(--paginator-border);
+      background: var(--paginator-bg);
+      color: var(--paginator-text);
+      transition: all 0.2s ease;
+      
+      &:not(.p-disabled):not(.p-highlight):hover {
+        background: var(--paginator-hover);
+        border-color: #cbd5e0;
+        color: var(--secondary);
+      }
+    }
+
+    .p-paginator-page.p-highlight {
+      background: var(--paginator-active);
+      border-color: var(--paginator-active);
+      color: var(--paginator-active-text);
+      font-weight: 500;
+    }
+
+    .p-paginator-current {
+      font-size: 0.875rem;
+      color: var(--paginator-text);
+      margin: 0 1rem;
+    }
+
+    .p-dropdown {
+      border-radius: 8px;
+      border: 1px solid var(--paginator-border);
+      height: 2.25rem;
+      background: var(--paginator-bg);
+      color: var(--paginator-text);
+      
+      &:not(.p-disabled):hover {
+        border-color: #cbd5e0;
+      }
+      
+      .p-dropdown-label {
+        padding: 0.5rem;
+      }
+    }
+
+    .p-paginator-icon {
+      font-size: 0.7rem;
+    }
+
+    .p-dropdown-panel {
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--paginator-border);
+      background: var(--paginator-bg);
+    }
+
+    .p-dropdown-items {
+      padding: 0.25rem 0;
+      
+      .p-dropdown-item {
+        padding: 0.5rem 1rem;
+        color: var(--paginator-text);
+        font-size: 0.875rem;
+        
+        &.p-highlight {
+          color: var(--paginator-active);
+          background: rgba(79, 70, 229, 0.08);
+        }
+        
+        &:not(.p-highlight):not(.p-disabled):hover {
+          background: var(--paginator-hover);
+          color: #2d3748;
+        }
+      }
+    }
+
+    .p-paginator-element {
+      &.p-disabled {
+        opacity: 0.6;
+        background: var(--paginator-disabled);
+      }
+    }
+  }
+}

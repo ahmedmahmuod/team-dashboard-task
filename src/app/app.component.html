@@ -1,0 +1,12 @@
+<div class="dashboard-root">
+  <!-- Slider -->
+  <app-sidebar [opened]="sidebarOpened" (closed)="sidebarOpened = false"></app-sidebar>
+
+  <!-- Main Area -->
+  <div class="main-area" [class.sidebar-opened]="sidebarOpened">
+    
+    <!-- Header and Dashboard Content -->
+    <app-header (toggleSidebar)="toggleSidebar()"></app-header>
+    <app-dashboard-content></app-dashboard-content>
+  </div>
+</div>

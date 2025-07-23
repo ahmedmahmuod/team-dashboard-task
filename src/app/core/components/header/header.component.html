@@ -1,0 +1,19 @@
+<header class="dashboard-header" role="banner" aria-label="Dashboard header">
+  <div class="header-left">
+    <button class="menu-btn" aria-label="Toggle sidebar menu" (click)="toggleSidebar.emit()" aria-expanded="false" aria-controls="sidebar">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="header-right">
+    <div class="user-info" role="region" aria-label="User information">
+      <div class="user-avatar">
+        <img src="./../../../../assets/images/admin_profile.jpg" alt="Admin Profile" title="Admin Profile" loading="lazy"/>
+        <div class="status-indicator admin"></div>
+      </div>
+      <div class="user-details">
+        <span class="user-name">Ahmed Mahmoud</span>
+        <span class="user-role">Admin</span>
+      </div>
+    </div>
+  </div>
+</header>

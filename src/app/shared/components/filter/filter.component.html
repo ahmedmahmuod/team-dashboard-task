@@ -1,0 +1,41 @@
+<div class="team-filter" role="region" aria-label="Team Filters">
+  <div class="filter-header">
+    <button *ngIf="hasActiveFilters" type="button" class="clear-filters-btn" (click)="onClearFilters()" aria-label="Clear all filters">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+      Clear Filters
+    </button>
+  </div>
+
+  <div class="filter-controls">
+    <div class="filter-group">
+      <label for="search-input" class="filter-label">Search</label>
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+        </svg>
+        <input id="search-input" type="text" class="form-input search-input" placeholder="Search by name or email..." [value]="filters.search" (input)="onSearchChange($any($event.target).value)" aria-describedby="search-help"/>
+      </div>
+      <span id="search-help" class="sr-only">Search team members by name or email address</span>
+    </div>
+
+    <div class="filter-group">
+      <label for="role-select" class="filter-label">Role</label>
+      <select id="role-select" class="form-input form-select" [value]="filters.role" (change)="onRoleChange($any($event.target).value)" aria-describedby="role-help">
+        <option value="">All Roles</option>
+        <option *ngFor="let role of roles$ | async" [value]="role">{{ role }}</option>
+      </select>
+      <span id="role-help" class="sr-only">Filter team members by their job role</span>
+    </div>
+
+    <div class="filter-group">
+      <label for="status-select" class="filter-label">Status</label>
+      <select id="status-select" class="form-input form-select" [value]="filters.status" (change)="onStatusChange($any($event.target).value)" aria-describedby="status-help">
+        <option value="">All Statuses</option>
+        <option *ngFor="let status of statuses$ | async" [value]="status">{{ status }}</option>
+      </select>
+      <span id="status-help" class="sr-only">Filter team members by their current status</span>
+    </div>
+  </div>
+</div>

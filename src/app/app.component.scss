@@ -1,0 +1,27 @@
+.dashboard-root {
+  margin-bottom: -40px;
+  @media (min-width: 768px), (max-width: 767px) {
+    display: block;
+  }
+}
+
+.main-area {
+  display: flex;
+  flex-direction: column;
+  transition: padding-inline-start 0.3s;
+  padding-inline-start: 0;
+
+  @media (min-width: 768px) {
+    &.sidebar-opened {
+      padding-inline-start: 240px;
+    }
+
+    &:not(.sidebar-opened) {
+      padding-inline-start: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-inline-start: 0;
+  }
+}

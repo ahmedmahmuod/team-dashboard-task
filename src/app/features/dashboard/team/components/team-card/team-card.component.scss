@@ -1,0 +1,387 @@
+.team-card {
+  background-color: var(--background);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out both;
+}
+
+.team-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--border-hover);
+}
+
+.team-card.grid-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.team-card.list-view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.team-card.grid-view .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.team-card.list-view .card-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+/* Avatar Section */
+.member-avatar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.team-card.grid-view .member-avatar {
+  align-self: center;
+}
+
+.avatar-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
+.team-card.list-view .avatar-image {
+  width: 60px;
+  height: 60px;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-card.list-view .status-indicator {
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.status-indicator.active {
+  background-color: var(--success);
+}
+
+.status-indicator.offline {
+  background-color: var(--gray-400);
+}
+
+.status-indicator.busy {
+  background-color: var(--danger);
+}
+
+.status-indicator.away {
+  background-color: var(--warning);
+}
+
+/* Member Info */
+.member-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.member-header {
+  margin-bottom: 1rem;
+}
+
+.team-card.list-view .member-header {
+  margin-bottom: 0.5rem;
+}
+
+.member-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.team-card.list-view .member-name {
+  font-size: 1.125rem;
+}
+
+.member-role {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.team-card.list-view .member-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.detail-icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+/* Member Status */
+.member-status {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.team-card.list-view .member-status {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-badge.active {
+  background-color: var(--success-light);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.status-badge.active .status-dot {
+  background-color: var(--success);
+}
+
+.status-badge.offline {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+  border-color: var(--gray-300);
+}
+
+.status-badge.offline .status-dot {
+  background-color: var(--gray-400);
+}
+
+.status-badge.busy {
+  background-color: var(--danger-light);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.status-badge.busy .status-dot {
+  background-color: var(--danger);
+}
+
+.status-badge.away {
+  background-color: var(--warning-light);
+  color: var(--warning);
+  border-color: var(--warning);
+}
+
+.status-badge.away .status-dot {
+  background-color: var(--warning);
+}
+
+/* Card Footer */
+.card-footer {
+  padding: 1rem 1.5rem;
+  background-color: var(--background-tertiary);
+  border-top: 1px solid var(--border);
+}
+
+.team-card.list-view .card-footer {
+  padding: 1rem;
+  background-color: transparent;
+  border-top: none;
+  border-left: 1px solid var(--border);
+  min-width: 200px;
+}
+
+.performance-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.performance-score {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.performance-bar {
+  height: 8px;
+  background-color: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.performance-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.performance-fill.excellent {
+  background-color: var(--success);
+}
+
+.performance-fill.good {
+  background-color: rgb(0, 102, 255);
+}
+
+.performance-fill.average {
+  background-color: var(--warning);
+}
+
+.performance-fill.poor {
+  background-color: var(--danger);
+}
+
+.performance-rating {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.performance-rating.excellent {
+  color: var(--success);
+}
+
+.performance-rating.good {
+  color: var(--primary);
+}
+
+.performance-rating.average {
+  color: var(--warning);
+}
+
+.performance-rating.poor {
+  color: var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-card.list-view {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .team-card.list-view .card-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .team-card.list-view .card-footer {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    background-color: var(--background-tertiary);
+    min-width: auto;
+  }
+
+  .team-card.list-view .member-details {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card.list-view .member-status {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-footer {
+    padding: 0.75rem 1rem;
+  }
+
+  .avatar-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .member-name {
+    font-size: 1.125rem;
+  }
+
+  .detail-item {
+    font-size: 0.8rem;
+  }
+}
+
+/* Focus and accessibility */
+.team-card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Animation for hover effects */
+@media (hover: hover) {
+  .team-card:hover {
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+}
